@@ -1,0 +1,17 @@
+
+.item-menu {
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.items {
+    background-color: bisque;
+    padding: 10px;
+}
+
+.cart {
+    background-color: burlywood;
+    padding: 10px;
+}
+
+.item-amount { width: 30px; float: left; margin-right: 10px;}
