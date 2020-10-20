@@ -1,5 +1,4 @@
 <template>
-  <transition name="fade">
     <div class="cart-item">
         <img class="thumb" alt="image" v-bind:src="item.img" />
         <div>
@@ -9,7 +8,6 @@
           <b-button size="sm" v-on:click="handleRemoveItem">Remove</b-button>
         </div>
     </div>
-  </transition>
 </template>
 
 <script>

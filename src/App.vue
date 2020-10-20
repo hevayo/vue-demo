@@ -8,9 +8,12 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item><router-link to="/">Home</router-link></b-nav-item>
-            <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
+            <b-nav-item><router-link to="/admin">Admin</router-link></b-nav-item>
+            <b-nav-item
+              ><router-link to="/about">About</router-link></b-nav-item>
           </b-navbar-nav>
         </b-collapse>
+        <Search />
       </b-navbar>
     </div>
     <router-view />
@@ -18,13 +21,15 @@
 </template>
 
 <script>
-import store from './store';
+import store from "./store";
+import Search from "./components/Search"
 
 export default {
-  data: function() {
+  data: function () {
     return store.state;
   },
   name: "App",
+  components: { Search }
 };
 </script>
 
