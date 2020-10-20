@@ -9,36 +9,15 @@
           <h2>Fruits</h2>
           <b-container fluid>
             <b-row>
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col>
-              <b-col sm="12" md="6" lg="4"  xl="3">
-                <Item />
-              </b-col >
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col>
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col>
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col>
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col >
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
-              </b-col>
-              <b-col sm="12" md="6" lg="4" xl="3">
-                <Item />
+              <b-col v-for="item in items" :key="item.name" sm="12" md="6" lg="4" xl="3">
+                <Item v-bind:item="item" />
               </b-col>
             </b-row>
           </b-container>
         </b-col>
         <b-col class="cart">
           <h4>Cart</h4>
-          <CartItem />
+          <CartItem  v-for="item in cart" :key="item.name" v-bind:item="item" />
         </b-col>
       </b-row>
     </b-container>
@@ -49,8 +28,10 @@
 // @ is an alias to /src
 import Item from '../components/Item'
 import CartItem from '../components/CartItem'
+import store from '../store';
 
 export default {
+  data: () => { return store.state },
   name: "Home",
   components: { Item , CartItem },
 };

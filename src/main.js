@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './css/my-shop.css'
 
-// import siteData from './site-data'
+
+// import store from './store'
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
@@ -17,9 +18,6 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false
 
 new Vue({
-  data: {
-    siteName: "My Site"
-  },
   router,
   render: h => h(App)
 }).$mount('#app')

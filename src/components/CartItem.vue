@@ -1,16 +1,37 @@
 <template>
-  <div class="cart-item">
-      <img class="thumb" alt="image" src="https://placekitten.com/300/300" />
-      <div>
-        <span>Apples</span>
-        <span>Price : Rs. 200</span>
-        <span>Qty : 1</span>
-        <b-button size="sm">Remove</b-button>
-      </div>
-  </div>
+  <transition name="fade">
+    <div class="cart-item">
+        <img class="thumb" alt="image" v-bind:src="item.img" />
+        <div>
+          <span>{{item.name}}</span>
+          <span>Price : Rs. {{ item.price }}</span>
+          <span>Qty : {{ item.qty }}</span>
+          <b-button size="sm" v-on:click="handleRemoveItem">Remove</b-button>
+        </div>
+    </div>
+  </transition>
 </template>
 
+<script>
+import store from '../store';
+
+export default {
+  props: [ 'item' ],
+  methods: {
+    handleRemoveItem: function() {
+      store.remove(this.item);
+    }
+  }
+}
+</script>
+
 <style scoped>
+
+.cart-item {
+  height: 150px;
+  display: inline-block;
+}
+
 .cart-item img{
   width: 40%;
   float: left;
